@@ -1,0 +1,41 @@
+@mixin transform ($property) {
+	transform: $property;
+	-webkit-transform: $property;
+	-ms-transform: $property;
+}
+
+@mixin color ($color) {
+	color: $color;
+}
+
+@mixin text-style($name, $bold-or-normal, $size, $color:black) {
+	#{$name} {
+		font-size: $size;
+		font-weight: $bold-or-normal;
+		color: $color
+	}
+}
+
+@include text-style(".interpolation", bold, 25);
+
+@function invert($color, $amount:100%) {
+	$inverse: change-color($color, $hue: hue($color) + 180);
+	@return mix($inverse, $color, $amount);
+}
+
+$primary-color: green;
+
+.button {
+	@include transform(rotate(90deg));
+	width: 600px/10px;
+	height: 25px;
+	border: 1px solid aqua;
+	padding: 5px;
+	text-transform: uppercase;
+	cursor: pointer;
+	background-color: invert($primary-color, 80%)
+}
+
+.div {
+	// @include transform();
+}

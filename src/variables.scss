@@ -1,0 +1,9 @@
+$primary-color: #333;
+$btn-main-color:  rgb(199, 196, 23);
+$btn-hover-color: rgb(93, 92, 36);
+
+@mixin transform {
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+}
